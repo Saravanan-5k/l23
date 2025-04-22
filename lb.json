@@ -1,0 +1,18 @@
+{
+    "Resources": {
+        "Mylb":{
+            "Type": "AWS::ElasticLoadBalancingV2::LoadBalancer",
+    "Properties" : {
+        "IpAddressType" : "ipv4",
+        "Name" : String,
+        "Scheme" :"Internet-facing",
+        "SecurityGroups" : [  ],
+        "SubnetMappings" : [ ],
+        "Tags" : [{"Key":"Name","Value":"popop"}],
+        "Type" : "application"
+      }
+     
+  }
+          
+}
+}

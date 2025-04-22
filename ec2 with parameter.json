@@ -1,0 +1,50 @@
+{
+    
+    "Parameters": {
+        "InstanceName": {
+        "Description": "Name tag for the EC2 instance",
+        "Type": "String",
+        "ConstraintDescription": "Must be a valid EC2 instance name."
+      },
+      "InstanceType": {
+        "Description": "EC2 instance type",
+        "Type": "String",
+        "ConstraintDescription": "Must be a valid EC2 instance type."
+      },
+      "ImageId": {
+        "Description": "AMI ID for the EC2 instance",
+        "Type": "String",
+        "ConstraintDescription": "Must be a valid AMI ID."
+      },
+      "KeyName": {
+        "Description": "Name of the EC2 Key Pair",
+        "Type": "String",
+        "ConstraintDescription": "Must be a valid EC2 Key Pair name."
+      }
+    },
+    "Resources": {
+      "MyEC2Instance": {
+        "Type": "AWS::EC2::Instance",
+        "Properties": {
+          "InstanceType": {
+            "Ref": "InstanceType"
+          },
+          "ImageId": {
+            "Ref": "ImageId"
+          },
+          "KeyName": {
+            "Ref": "KeyName"
+          },
+          "Tags": [
+            {
+              "Key": "Name",
+              "Value": {
+                "Ref": "InstanceName"
+              }
+            }
+          ]
+        }
+      }
+    }
+  }
+  

@@ -1,0 +1,64 @@
+{
+    "Parameters": {
+        "VpcName": {
+        "Description": "Name tag for the VPC",
+        "Type": "String",
+        "ConstraintDescription": "Must be a valid VPC name."
+      },
+      "CidrBlock": {
+        "Description": "CIDR block for the VPC",
+        "Type": "String",
+        "ConstraintDescription": "Must be a valid CIDR block."
+      },
+      "SubnetCidrBlock": {
+        "Description": "CIDR block for the Subnet",
+        "Type": "String",
+        "ConstraintDescription": "Must be a valid CIDR block for a subnet."
+      },
+     
+      "SubnetName": {
+        "Description": "Name tag for the Subnet",
+        "Type": "String",
+        "ConstraintDescription": "Must be a valid Subnet name."
+      }
+    },
+    "Resources": {
+      "MyVPC": {
+        "Type": "AWS::EC2::VPC",
+        "Properties": {
+          "CidrBlock": {
+            "Ref": "CidrBlock"
+          },
+          "Tags": [
+            {
+              "Key": "Name",
+              "Value": {
+                "Ref": "VpcName"
+              }
+            }
+          ]
+        }
+      },
+      "MySubnet": {
+        "Type": "AWS::EC2::Subnet",
+        "Properties": {
+          "VpcId": {
+            "Ref": "MyVPC"
+          },
+          "CidrBlock": {
+            "Ref": "SubnetCidrBlock"
+          },
+          "AvailabilityZone": "us-east-1a",  
+          "Tags": [
+            {
+              "Key": "Name",
+              "Value": {
+                "Ref": "SubnetName"
+              }
+            }
+          ]
+        }
+      }
+    }
+  }
+  

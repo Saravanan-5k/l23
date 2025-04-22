@@ -1,0 +1,17 @@
+{
+    "Parameters":{
+        "s3name":{
+            "Description":"Enter the s3 name",
+            "Type":"String",
+            "ConstraintDescription":"Must be valid and unique s3bucket name"
+        }
+    },
+    "Resources": {
+        "S3Bucket": {
+            "Type": "AWS::S3::Bucket",
+            "Properties": {
+                "BucketName": {"Ref":"s3name"}
+            }
+        }
+    }
+}
