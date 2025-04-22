@@ -1,0 +1,10 @@
+- hosts: all
+  remote_user: root
+  tasks: 
+  - name: creating the dirctory
+   shell: "cd /; mkdir aws-dev"
+
+  - name: creating the file
+    shell: "cd /aws-dev; touch test2.py"
+
+   
